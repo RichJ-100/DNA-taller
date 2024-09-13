@@ -1,0 +1,44 @@
+seq_aa = input ("DNA sequence: ")
+def validate_dnaX (dna_seq):
+# Checks if DNA sequence is valid. Returns True is sequence is valid, or False otherwise. "
+  seqm = dna_seq.upper()
+  valid = seqm.count("A") + seqm.count("C") + seqm.count("G") + seqm.count("T") + seqm.count(" ")
+  if valid == len (seqm): return "Humano"
+  else : return "Mutante"
+DNA_mayus = seq_aa.upper();
+print (DNA_mayus + " " + "=" + " " + validate_dnaX(seq_aa))
+def frequencyX (seq):
+# Calculates the frequency of each symbol in the sequence. Returns a dictionary. """
+  dic = {}
+  for s in seq.upper():
+    if s in dic: dic[s] += 1
+    else : dic[s] = 1
+  return dic
+print ( frequencyX(seq_aa))
+seq_aa2 = input ("DNA sequence 2: ")
+DNA_mayus2 = seq_aa2.upper();
+print ("DNA 1:" + " " + DNA_mayus)
+print ("DNA 2:" + " " + DNA_mayus2)
+if (seq_aa) != (seq_aa2):
+  print("Mutación")
+else:
+  print("No mutación")
+
+diferencias = []
+
+for pos in range(len(seq_aa)):
+  if pos < len(seq_aa2):
+    if seq_aa[pos] != seq_aa2[pos]:
+      diferencias.append(pos+1)
+
+if diferencias:
+  print("Las posiciones con diferencias son:", diferencias)
+else:
+  print("Las secuencias son iguales")
+  
+if len(seq_aa) > len(seq_aa2):
+  print(f"La secuencia 1 tiene {len(seq_aa) - len(seq_aa2)} caracteres más")
+elif len(seq_aa) < len(seq_aa2):
+  print(f"La secuencia 2 tiene {len(seq_aa2) - len(seq_aa)} caracteres más")
+else:
+  print("Las secuencias tienen la misma longitud")
